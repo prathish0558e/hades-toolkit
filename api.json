@@ -1,0 +1,199 @@
+{
+  "version": "2",
+  "supported_countries": ["91"],
+  "providers": {
+    "sms": [
+      {
+        "name": "AMAZON",
+        "url": "https://www.amazon.in/gp/identity/sign-in/register",
+        "method": "POST",
+        "data": {
+          "customerName": "Hades",
+          "email": "91{target}",
+          "password": "hades",
+          "passwordCheck": "hades"
+        },
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": null,
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "AJIO",
+        "url": "https://www.ajio.com/api/auth/signIn",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "login": "{target}",
+          "deviceType": "web",
+          "countryCode": "+{cc}"
+        },
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "BOX8",
+        "url": "https://box8.in/users/v2/send_otp.json",
+        "method": "POST",
+        "data": {
+          "phone": "{target}"
+        },
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": null,
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "OLA",
+        "url": "https://book.olacabs.com/data-layer/v1/auth/signup",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "country_code": "+{cc}",
+          "email": "",
+          "gid": "",
+          "name": "Hades",
+          "phone": "{target}",
+          "utm_source": ""
+        },
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "PHARMEASY",
+        "url": "https://pharmeasy.in/api/auth/requestOTP",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "contactNumber": "{target}"
+        },
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "SNAPDEAL",
+        "url": "https://www.snapdeal.com/sendOTP",
+        "method": "POST",
+        "data": {
+          "mobileNumber": "{target}",
+          "emailId": "",
+          "otpType": "LOGIN"
+        },
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": null,
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "SWIGGY",
+        "url": "https://www.swiggy.com/dapi/auth/sms-otp",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "mobile": "{target}"
+        },
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "ZEE5",
+        "url": "https://userapi.zee5.com/v2/user/register",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "country": "IN",
+          "phone": "+{cc}{target}",
+          "provider": "phone"
+        },
+        "success_msg": "OTP has been sent to your mobile number"
+      },
+      {
+        "name": "ZOOMCAR",
+        "url": "https://www.zoomcar.com/api/v2/users/login-or-signup",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "phone_number": "{target}",
+          "country_code": "+{cc}"
+        },
+        "success_msg": "OTP has been sent to your mobile number"
+      }
+    ],
+    "call": [
+      {
+        "name": "CONFIRMTKT",
+        "url": "https://www.confirmtkt.com/api/platform/register",
+        "method": "POST",
+        "data": {
+          "mobileNumber": "{target}",
+          "newNumber": "{target}"
+        },
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": null,
+        "success_msg": "Call has been sent to your mobile number"
+      },
+      {
+        "name": "OYO",
+        "url": "https://www.oyorooms.com/api/pwa/generate_otp",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "phone": "{target}",
+          "country_code": "+{cc}",
+          "nod": "4"
+        },
+        "success_msg": "Call has been sent to your mobile number"
+      }
+    ],
+    "mail": [
+      {
+        "name": "DISCORD",
+        "url": "https://discord.com/api/v9/auth/register",
+        "method": "POST",
+        "data": null,
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "json": {
+          "email": "{target}",
+          "username": "Hades"
+        },
+        "success_msg": "Mail has been sent to your email address"
+      }
+    ]
+  }
+}
