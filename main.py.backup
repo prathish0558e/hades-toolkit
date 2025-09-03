@@ -1,0 +1,139 @@
+import sys
+import os
+from rictools = {
+    '1': ("Advanced Phone Number OSINT", phone_info.phone_info_tool),
+    '2': ("Network Port Scanner", port_scanner.run),
+    '3': ("WiFi Password Cracking (Sim)", wifi_cracker.run),
+    '4': ("IP Address Tracer", ip_tracer.run),
+    '5': ("Web Vulnerability Scanner (Sim)", web_vuln_scanner.web_vuln_scanner_tool),
+    '6': ("System Information Gatherer", system_info.display_system_info),
+    '7': ("Screen Hacking / RAT Info", info_tools.remote_access_info),
+    '8': ("Fake Link Creation Info", info_tools.fake_link_info),
+    '9': ("Camera Hacking Info", info_tools.camera_hacking_info),
+    '10': ("DNS Lookup", dns_lookup.run),
+    '11': ("WHOIS Lookup", whois_lookup.run),
+    '12': ("Password Strength Checker", password_checker.run),
+    '13': ("Hash Generator", hash_generator.run),
+    '14': ("🔥 ADVANCED NETWORK SCANNER", advanced_scanner.run),
+    '15': ("🔥 VULNERABILITY ASSESSMENT", vuln_assessment.run),
+    '16': ("🔥 CRYPTOGRAPHY ANALYZER", crypto_analyzer.run),
+    '17': ("🔥 DIGITAL FORENSICS TOOLS", forensic_tools.run),
+    '18': ("🔥 WIRELESS NETWORK ANALYZER", wireless_analyzer.run),
+    '19': ("🔥 EXPLOIT FRAMEWORK SIMULATOR", exploit_framework.run),
+    '20': ("🔥 SOCIAL ENGINEERING TOOLKIT", social_engineer.run),
+    '21': ("🔥 MALWARE DETECTION SYSTEM", malware_detector.run),
+    '22': ("🔥 NETWORK MAPPER & TOPOLOGY", network_mapper.run),
+    '23': ("🔥 COMPLETE PENTEST SUITE", pentest_suite.run),
+}Panel
+from rich.prompt import Prompt
+from utils.ui import console, clear_screen, print_banner
+from tools import (
+    phone_info,
+    port_scanner,
+    wifi_cracker,
+    ip_tracer,
+    web_vuln_scanner,
+    system_info,
+    info_tools,
+    dns_lookup,
+    whois_lookup,
+    password_checker,
+    hash_generator,
+    advanced_scanner,
+    vuln_assessment,
+    crypto_analyzer,
+    forensic_tools,
+    wireless_analyzer,
+    exploit_framework,
+    social_engineer,
+    malware_detector,
+    network_mapper,
+    pentest_suite
+)
+
+tools = {
+    '1': ("Advanced Phone Number OSINT", phone_info.phone_info_tool),
+    '2': ("Network Port Scanner", port_scanner.run),
+    '3': ("WiFi Password Cracking (Sim)", wifi_cracker.run),
+    '4': ("IP Address Tracer", ip_tracer.run),
+    '5': ("Web Vulnerability Scanner (Sim)", web_vuln_scanner.web_vuln_scanner_tool),
+    '6': ("System Information Gatherer", system_info.display_system_info),
+    '7': ("Screen Hacking / RAT Info", info_tools.remote_access_info),
+    '8': ("🔗 Advanced Phishing Link Generator", info_tools.fake_link_info),
+    '9': ("Camera Hacking Info", info_tools.camera_hacking_info),
+    '10': ("DNS Lookup", dns_lookup.run),
+    '11': ("WHOIS Lookup", whois_lookup.run),
+    '12': ("Password Strength Checker", password_checker.run),
+    '13': ("Hash Generator", hash_generator.run),
+}
+
+def main_menu():
+    while True:
+        clear_screen()
+        print_banner("Hades Toolkit")
+        menu_text = ""
+        for key, (name, _) in tools.items():
+            color = "cyan" if key in ['1', '4', '6'] else "red" if key in ['2', '3', '5'] else "yellow"
+            menu_text += f"[bold {color}]{key}.[/bold {color}] {name}\n"
+        menu_text += "[bold white]0.[/bold white] Exit"
+        console.print(Panel(
+            menu_text.strip(),
+            title="[bold yellow]Hades Toolkit Menu[/bold yellow]",
+            border_style="yellow"
+        ))
+        choice = Prompt.ask("[cyan]Choose an option[/cyan]", choices=[*tools.keys(), '0'], default="1")
+        if choice == '0':
+            console.print("[bold red]Exiting... Goodbye![/bold red]")
+            break
+
+        selected_tool = tools[choice][1]
+        if hasattr(selected_tool, 'run') and callable(selected_tool.run):
+            selected_tool.run()
+        elif callable(selected_tool):
+            selected_tool()
+        else:
+            console.print(f"[bold red]Error: Tool {tools[choice][0]} is not configured correctly.[/bold red]")
+            Prompt.ask("[yellow]Press Enter to continue.[/yellow]")
+            continue
+
+        # After tool execution, ask user what to do next
+        console.print("\n" + "="*60)
+        console.print("[bold yellow]Next Action Options:[/bold yellow]")
+        console.print("[cyan]1.[/cyan] Return to Main Menu")
+        console.print("[cyan]2.[/cyan] Exit Hades Toolkit")
+        console.print("[cyan]0.[/cyan] Exit Hades Toolkit")
+        next_action = Prompt.ask("[cyan]What would you like to do next?[/cyan]",
+                                choices=['1', '2', '0'],
+                                default='1')
+        if next_action == '1':
+            continue  # Return to menu
+        elif next_action == '2':
+            console.print("[bold red]Exiting... Goodbye![/bold red]")
+            break
+        elif next_action == '0':
+            console.print("[bold red]Exiting... Goodbye![/bold red]")
+            break
+
+if __name__ == "__main__":
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        wordlist_path = os.path.join(script_dir, "data", "wordlist.txt")
+        if not os.path.exists(wordlist_path):
+            console.print(f"[yellow]Warning: '{wordlist_path}' not found. Creating a sample file.[/yellow]")
+            os.makedirs(os.path.join(script_dir, "data"), exist_ok=True)
+            with open(wordlist_path, "w") as f:
+                f.write("password123\n")
+                f.write("admin\n")
+                f.write("123456\n")
+                f.write("qwerty\n")
+        main_menu()
+    except KeyboardInterrupt:
+        console.print("\n[bold red]Interrupted by user. Exiting...[/bold red]")
+        sys.exit(0)
+    except ImportError as e:
+        console.print(f"\n[bold red]Error: A required module is missing: {e}[/bold red]")
+        console.print("[yellow]Please run 'pip install -r requirements.txt' to install dependencies.[/yellow]")
+        sys.exit(1)
+    except Exception as e:
+        console.print(f"\n[bold red]An unexpected error occurred: {e}[/bold red]")
+        sys.exit(1)

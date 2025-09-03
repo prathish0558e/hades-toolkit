@@ -1,0 +1,14 @@
+
+rich
+phonenumbers
+requests
+psutil
+dnspython
+python-whois
+pyngrok
+qrcode
+pillow
+cryptography
+exiftool
+PyQt5
+tk

