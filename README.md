@@ -82,8 +82,13 @@ sudo apt-get install aircrack-ng
    ```sh
    python main.py
    ```
-2. You will see a menu with all available tools. Enter the number of the tool you want to use.
-3. Each tool will show a banner and guide you step-by-step.
+   or
+   ```sh
+   Cd hads-toolkit
+   /home/prathi/Desktop/hacking/hades-toolkit/.venv/bin/python main.py
+    ```
+3. You will see a menu with all available tools. Enter the number of the tool you want to use.
+4. Each tool will show a banner and guide you step-by-step.
 
 ---
 
